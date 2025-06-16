@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
+      ./hardware-configuration.nix ./development.nix
     ];
 
 	swapDevices = [
@@ -154,7 +154,6 @@
 	nerd-fonts.fira-code
   	nerd-fonts.caskaydia-cove
 	starship
-	nginx
 	git
 	mysql-workbench
 	python313
@@ -255,18 +254,6 @@
 		package = pkgs.mariadb;
 	};
 
-	services.nginx = {
-	  enable = true;
-	  user = "devd";
-	  group = "users";
-	  virtualHosts."localhost" = {
-		  root = "/var/www";
-		  locations."/" = {
-		index = "index.html";
-		  };
-		};
-	};
-	networking.firewall.allowedTCPPorts = [ 80 ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
