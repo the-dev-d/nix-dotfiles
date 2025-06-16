@@ -154,6 +154,7 @@
 	nerd-fonts.fira-code
   	nerd-fonts.caskaydia-cove
 	starship
+	nginx
 	git
 	mysql-workbench
 	python313
