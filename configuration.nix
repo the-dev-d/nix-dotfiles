@@ -254,6 +254,19 @@
 		enable = true;
 		package = pkgs.mariadb;
 	};
+
+	services.nginx = {
+	  enable = true;
+	  user = "devd";
+	  group = "users";
+	  virtualHosts."localhost" = {
+		  root = "/var/www";
+		  locations."/" = {
+		index = "index.html";
+		  };
+		};
+	};
+	networking.firewall.allowedTCPPorts = [ 80 ];
   # This value determines the NixOS release from which the default
   # settings for stateful data, like file locations and database versions
   # on your system were taken. It‘s perfectly fine and recommended to leave
