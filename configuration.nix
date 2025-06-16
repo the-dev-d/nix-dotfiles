@@ -108,6 +108,7 @@
   	shellAliases = {
   		ls = "eza -l --icons";
   		".." = "cd ..";
+  		flakedir = "cd /home/devd/Flakes";
   	};
   };
 
