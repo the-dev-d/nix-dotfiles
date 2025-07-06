@@ -7,7 +7,7 @@
 {
   imports =
     [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix ./development.nix
+      ./hardware-configuration.nix ./development.nix ./gnome.nix
     ];
 
 	swapDevices = [
@@ -48,15 +48,6 @@
   };
   
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
-
-  # Enable the X11 windowing system.
-
-  # Enable the GNOME Desktop Environment.
-   services.xserver = {
-  	  enable = true;
-  	  displayManager.gdm.enable = true;
-  	  desktopManager.gnome.enable = true;
-  };
 
 
   # Configure keymap in X11
@@ -115,10 +106,7 @@
 
   # Install firefox.
   programs.firefox.enable = true;
-  programs.kdeconnect = {
-  	enable = true;
-  	package = pkgs.gnomeExtensions.gsconnect;
-  };
+  
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -133,7 +121,6 @@
 	obs-studio
 	postman
 	neofetch
-  	windsurf
 	termius
 	warp-terminal
 	gimp
@@ -143,20 +130,12 @@
 	gnome-extension-manager
 	cloudflare-warp
 	unzip
-	gnomeExtensions.blur-my-shell
-	gnomeExtensions.dash-to-dock
-	gnomeExtensions.clipboard-history
-	gnomeExtensions.compiz-alike-magic-lamp-effect
-	gnomeExtensions.tiling-shell
 	zip
-	nodejs_22
-	jdk23
 	nerd-fonts.fira-code
-  	nerd-fonts.caskaydia-cove
+  nerd-fonts.caskaydia-cove
 	starship
 	git
 	mysql-workbench
-	python313
 	gparted
 	eza
   ];
